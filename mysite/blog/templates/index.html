@@ -1,0 +1,103 @@
+{% extends 'base.html'%}
+{% block content%}
+{% load static %}
+
+<body>
+    <div class="container-fluid bg-white">
+        <!-- Content here -->
+
+        <!-- Encabezado -->
+        <header class="bg-dark text-white">
+            <div class="container-fluid mb-5">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <h1 class="display-4 text-light mb-4">Mi portafolio</h1>
+                        <hr class="bg-light">
+                        <p class="lead text-light">Bienvenido</p>
+                    </div>
+
+                    <div class="col-md-6 text-md-right text-center">
+                        <a href="/login" class="btn btn-primary mr-md-2 mb-2">Iniciar sesión</a>
+                        <a href="/register" class="btn btn-outline-primary mb-2">Registrarse</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Contenido principal -->
+        <main>
+            <div class="container mb-5">
+                <div class="row">
+                    <div class="col-md-8">
+                        <h2>Nombre: Carlos Calderón</h2>
+                        <h3>Ingeniero en IT</h3>
+                        <p class="text-justify">Soy un apasionado programador con experiencia en desarrollo web y
+                            aplicaciones móviles. Me encanta resolver problemas y crear soluciones innovadoras
+                            utilizando tecnologías de vanguardia. Siempre estoy buscando oportunidades para aprender y
+                            mejorar mis habilidades.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h2 class="text-center">Habilidades Técnicas</h2>
+                        <div class="text-right">
+                            <i class="fas fa-chevron-up scroll-icon"></i>
+                        </div>
+                        <div class="scroll-list">
+                            <ul id="skills-list" class="list-group text-center"
+                                style="max-height: 200px; overflow-y: scroll;">
+                                <li class="list-group-item list-group-item-primary">HTML5</li>
+                                <li class="list-group-item list-group-item-success">CSS</li>
+                                <li class="list-group-item list-group-item-info">Bootstrap</li>
+                                <li class="list-group-item list-group-item-warning">JavaScript</li>
+                                <li class="list-group-item list-group-item-danger">Python</li>
+                                <li class="list-group-item list-group-item-dark">Django</li>
+                                <li class="list-group-item list-group-item-secondary">SQL</li>
+                                <li class="list-group-item list-group-item-light">PHP</li>
+                            </ul>
+                            <div class="text-right">
+                                <i class="fas fa-chevron-down scroll-icon down"></i>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h2>Experiencia Laboral:</h2>
+                        <ul>
+                            <li>Prácticas profesionales con python y django</li>
+                            <hr>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h2>Habilidades Técnicas</h2>
+                        <ul>
+                            <li>Prácticas profesionales con python y django</li>
+                            <hr>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h2>Educación:</h2>
+                        <ul>
+                            <li>Prácticas profesionales con python y django</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h2>Información de Contacto:</h2>
+                        <ul>
+                            <li>Correo electrónico: ccalderon.tech@gmail.com</li>
+                            <li>LinkedIn: ivan.xdxd</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+<script src="{% static 'js/index.js' %}"></script>
+
+
+{% endblock %}

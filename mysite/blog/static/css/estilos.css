@@ -1,0 +1,37 @@
+/* Hoja de estilos */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100%;
+    background: lightgray;
+}
+
+.footer {
+    background-color: gray;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}
+
+.scroll-list {
+    position: relative;
+}
+
+.scroll-icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+}
+
+.scroll-icon.down {
+    top: auto;
+    bottom: 0;
+    transform: rotate(180deg);
+}
