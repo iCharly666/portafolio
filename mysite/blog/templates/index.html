@@ -1,5 +1,5 @@
-{% extends 'base.html'%}
-{% block content%}
+{% extends 'base.html' %}
+{% block content %}
 {% load static %}
 
 <body>
@@ -27,15 +27,24 @@
         <!-- Contenido principal -->
         <main>
             <div class="container mb-5">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <img src="{% static 'image/homeworks.png' %}" alt="Foto de perfil"
+                                class="rounded-circle img-fluid perfil-image">
+                        </div>
+                    </div>
+                </div>
+
                 <div class="row">
                     <div class="col-md-8">
-                        <h2>Nombre: Carlos Calderón</h2>
-                        <h3>Ingeniero en IT</h3>
+                        <h2>Ing.Carlos Calderón</h2>
+                        <p class="bold">Ingeniero en IT</p>
                         <p class="text-justify">Soy un apasionado programador con experiencia en desarrollo web y
-                            aplicaciones móviles. Me encanta resolver problemas y crear soluciones innovadoras
-                            utilizando tecnologías de vanguardia. Siempre estoy buscando oportunidades para aprender y
-                            mejorar mis habilidades.</p>
-                            <i class="fa-sharp fa-light fa-briefcase fa-beat fa-lg"></i>
+                            aplicaciones
+                            móviles. Me encanta resolver problemas y crear soluciones innovadoras utilizando tecnologías
+                            de vanguardia.
+                            Siempre estoy buscando oportunidades para aprender y mejorar mis habilidades.</p>
                     </div>
                     <div class="col-md-4">
                         <h2 class="text-center">Habilidades Técnicas</h2>
@@ -60,47 +69,47 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <hr class="bg-light">
                 <div class="container">
                     <div class="row">
-                      <div class="col-md-6 mb-4">
-                        <a href="/projects" target="_blank">  
-                          <img src="{% static 'image/projects_sw.png' %}" alt="Mis proyectos" class="img-fluid">
-                        </a>
-                      </div>
-                      
-                      <div class="col-md-6 mb-4">
-                        <a href="https://via.placeholder.com/500" target="_blank">
-                          <img src="{% static 'image/homeworks.png' %}" alt="Imagen 2" class="img-fluid">
-                        </a>
-                      </div>
+                        <div class="col-md-6 mb-4">
+                            <a href="/projects" target="_blank">
+                                <img src="{% static 'image/projects_sw.png' %}" alt="Mis proyectos"
+                                    class="img-fluid img-opacity rounded">
+                                <div class="text-overlay">Mis proyectos</div>
+                            </a>
+                        </div>
+
+                        <div class="col-md-6 mb-4">
+                            <a href="https://via.placeholder.com/500" target="_blank">
+                                <img src="{% static 'image/homeworks.png' %}" alt="Tareas"
+                                    class="img-fluid img-opacity rounded">
+                                <div class="text-overlay">Mis tareas</div>
+                            </a>
+                        </div>
                     </div>
                     <div class="row">
-                      <div class="col-md-6 mb-4">
-                        <a href="https://via.placeholder.com/500" target="_blank">
-                          <img src="https://via.placeholder.com/500" alt="Imagen 3" class="img-fluid">
-                        </a>
-                      </div>
-                      <div class="col-md-6 mb-4">
-                        <a href="https://via.placeholder.com/500" target="_blank">
-                          <img src="https://via.placeholder.com/500" alt="Imagen 4" class="img-fluid">
-                        </a>
-                      </div>
+                        <div class="col-md-6 mb-4">
+                            <a href="https://via.placeholder.com/500" target="_blank">
+                                <img src="{% static 'image/homeworks.png' %}" alt="Imagen 3"
+                                    class="img-fluid img-opacity rounded">
+                                <div class="text-overlay">Sobre mi</div>
+                            </a>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <a href="https://via.placeholder.com/500" target="_blank">
+                                <img src="{% static 'image/projects_sw.png' %}" alt="Imagen 4"
+                                    class="img-fluid img-opacity rounded">
+                                <div class="text-overlay">Otros</div>
+                            </a>
+                        </div>
                     </div>
-                  </div>
-                  
-                  
-                  
-                  
-                  
+                </div>
             </div>
-    </div>
-    </div>
-    </main>
+        </main>
     </div>
 </body>
 <script src="{% static 'js/index.js' %}"></script>
-
 
 {% endblock %}
