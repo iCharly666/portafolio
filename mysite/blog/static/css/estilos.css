@@ -70,3 +70,31 @@ body {
     padding: 10px; /* Agrega un espacio de relleno alrededor del texto */
     font-weight: bold; /* Opcional: Agrega negrita al texto */
   }
+
+/* contenedor de proyectos.html*/
+  .container {
+    margin-top: 50px;
+  }
+
+
+#resultado {
+    background-color: #f8f9fa;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 20px;
+    font-weight: bold;
+  }
+
+#resultadoCalculadora {
+    background-color: #f8f9fa;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 20px;
+    font-weight: bold;
+  }
+
+  .btn-container {
+    margin-top: 10px;
+  }
