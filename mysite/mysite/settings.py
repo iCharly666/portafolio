@@ -123,6 +123,23 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 
+# Configuración de autenticación
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+]
+
+# URL de redireccionamiento después de iniciar sesión
+LOGIN_REDIRECT_URL = '/'
+
+# URL de redireccionamiento después de cerrar sesión
+LOGOUT_REDIRECT_URL = '/'
+
+# Configuración del correo electrónico para restablecimiento de contraseñas
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# Configuración de autenticación con nombre de usuario en lugar de correo electrónico
+AUTH_USER_MODEL = 'auth.User'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
