@@ -4,19 +4,11 @@
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 #from django import forms
 from django.http import HttpResponse, JsonResponse
-#from django.contrib.auth import login as auth_login
 #from .models import Project, Task
-
 from django.shortcuts import redirect, render
 from django.contrib.auth import login as auth_login
-
-# Importar las clases de forms.py para el formulario de registro.
-from blog.forms.custom_forms import CustomUserCreationForm
-
-
+from blog.forms.custom_forms import CustomUserCreationForm # Importar las clases de forms.py - custom_forms.py para el formulario de registro.
 from .models import Project, Task
-
-
 
 
 # Create your views here.
@@ -51,14 +43,10 @@ def login(request):
     return render(request, 'login.html', {'form': form})
 
 
-
-
-
-
 # Función para registrarse como usuario
 def register(request):
     if request.method == 'POST':
-        form = CustomUserCreationForm(request.POST)
+        form = CustomUserCreationForm(request.POST) # La clase CustomUserCreationForm se ubica en forms/forms.py
         if form.is_valid():
             form.register_user(request)
             return redirect('login')
