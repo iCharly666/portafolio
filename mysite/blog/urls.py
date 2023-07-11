@@ -10,4 +10,6 @@ urlpatterns = [
     path('register/', views.register, name='register'),  # Utiliza el nombre de función actualizado
     #path('login/', views.login_view, name='login'),  # Utiliza el nombre de función actualizado
     path('login/', views.login_view, name='login'),  # Utiliza el nombre de función actualizado
+    path('logout/', views.logout_view, name='logout')
+
 ]

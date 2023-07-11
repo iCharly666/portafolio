@@ -50,11 +50,21 @@ def login_view(request):
         if form.is_valid():
             user = form.get_user()
             login(request, user)
+            request.session['username'] = user.username  # Guarda el nombre de usuario en la sesión
             return redirect('/')  # Redirige a la página principal después del inicio de sesión exitoso
     else:
         form = AuthenticationForm()
     
     return render(request, 'login.html', {'form': form})
+
+
+# logout
+from django.contrib.auth import logout
+
+def logout_view(request):
+    logout(request)
+    return redirect('index')  # Redirige a la página principal después de cerrar sesión
+
 
 
 

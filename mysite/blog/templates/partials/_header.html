@@ -1,5 +1,6 @@
 {% load static %}
 <!-- Encabezado -->
+
 <nav class="navbar navbar-expand-lg navbar-light tone_purple mb-3">
     <div class="container-fluid">
         <img src="{% static 'image/logotipo.png' %}" alt="Logotipo" class="rounded-circle img-fluid logotipo-image">
@@ -23,13 +24,24 @@
                     <a class="nav-link text-white" href="/about">Sobre mí</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="bi bi-person-circle"></i> Perfil
-                    </a>
+                    {% if user.is_authenticated %}
+                        <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="bi bi-person-circle"></i> {{ user.username }}
+                        </a>
+                    {% else %}
+                        <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="bi bi-person-circle"></i> Perfil
+                        </a>
+                    {% endif %}
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/login">Iniciar sesión</a>
-                        <a class="dropdown-item" href="/register">Registrarse</a>
+                        {% if user.is_authenticated %}
+                            <a class="dropdown-item" href="/logout">Cerrar sesión</a>
+                        {% else %}
+                            <a class="dropdown-item" href="/login">Iniciar sesión</a>
+                            <a class="dropdown-item" href="/register">Registrarse</a>
+                        {% endif %}
                     </div>
                 </li>
             </ul>
