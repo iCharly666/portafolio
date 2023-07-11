@@ -3,6 +3,7 @@
 <!--html base-->
 <!doctype html>
 <html lang="en">
+
 <head>
     <title>{% block title %}Mi plantilla Base{% endblock %}</title>
     <!-- Required meta tags -->
@@ -18,11 +19,12 @@
         integrity="sha512-..." crossorigin="anonymous" />
 
     <script src="https://kit.fontawesome.com/da5b654acc.js" crossorigin="anonymous"></script>
-    
+
 
 
     {% block css%} {% endblock %}
 </head>
+
 <body>
     <!-- Encabezado -->
     {% include 'partials/_header.html' %}
