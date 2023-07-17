@@ -55,6 +55,12 @@ body {
     transform: rotate(180deg);
 }
 
+/* margen para la card de habilidades del index*/
+
+
+.habilidades__container { overflow-y: scroll; margin-bottom: 12px; max-height: 200px;}
+
+
 /* navbar color*/
 .tone_purple {
     background-color: #6351ce;
