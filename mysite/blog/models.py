@@ -31,4 +31,13 @@ class Task(models.Model):
     def __str__(self):
         return self.title + ' - ' + self.project.name
     
+# Modelo para foros
+
+class CategoriaForo(models.Model):
+    nombre = models.CharField(max_length=100)
+    descripcion = models.TextField()
+
+    def __str__(self):
+        return self.nombre
+    
 

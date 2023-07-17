@@ -11,6 +11,11 @@ from blog.models import Project
 # Importar clase de formulario personalizado desde la carpeta forms - forms.py
 from blog.forms.forms import CustomUserCreationForm
 
+# Foros
+from .models import CategoriaForo
+from blog.models import CategoriaForo
+from blog.forms.forms import CategoriaForm
+
 import logging
 
 logger = logging.getLogger(__name__)
@@ -76,3 +81,22 @@ from django.contrib.auth import logout
 def logout_view(request):
     logout(request)
     return redirect("index")  # Redirige a la página principal después de cerrar sesión
+
+
+# Foros
+def foros(request):
+    categorias = CategoriaForo.objects.all()
+    return render(request, 'foros.html', {'categorias': categorias})
+
+# Categoria foros:
+def crear_categoria(request):
+    if request.method == 'POST':
+        form = CategoriaForm(request.POST)
+        if form.is_valid():
+            form.save()
+            # Redirecciona a la página de listado de categorías o a donde desees.
+            return redirect('foros')
+    else:
+        form = CategoriaForm()
+    
+    return render(request, 'crear_categoria.html', {'form': form})

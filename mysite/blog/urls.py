@@ -15,4 +15,7 @@ urlpatterns = [
         "login/", views.login_view, name="login"
     ),  # Utiliza el nombre de función actualizado
     path("logout/", views.logout_view, name="logout"),
+    # foros
+    path("foros/", views.foros, name="foros"),
+    path('crear_categoria/', views.crear_categoria, name='crear_categoria'), # Crear categoria foro
 ]
