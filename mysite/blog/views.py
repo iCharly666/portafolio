@@ -3,13 +3,16 @@ from django.shortcuts import render, redirect, get_object_or_404
 
 # from blog.forms.forms import CustomLoginForm
 from django.contrib.auth.forms import AuthenticationForm
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseForbidden
 
 # from django.contrib.auth.forms import AuthenticationForm
 from blog.models import Project
 
 # Importar clase de formulario personalizado desde la carpeta forms - forms.py
 from blog.forms.forms import CustomUserCreationForm
+
+# Decoradores y permisos
+from django.contrib.auth.decorators import login_required, permission_required
 
 # Foros
 from .models import CategoriaForo
@@ -86,39 +89,62 @@ def logout_view(request):
 # Foros
 def foros(request):
     categorias = CategoriaForo.objects.all()
-    return render(request, 'foros.html', {'categorias': categorias})
+    return render(request, "foros.html", {"categorias": categorias})
 
-# Categoria foros:
+
+# Vista para agregar una nueva categoría
+@login_required
 def crear_categoria(request):
-    if request.method == 'POST':
-        form = CategoriaForm(request.POST)
-        if form.is_valid():
-            form.save()
-            # Redirecciona a la página de listado de categorías o a donde desees.
-            return redirect('foros')
-    else:
-        form = CategoriaForm()
-    
-    return render(request, 'crear_categoria.html', {'form': form})
+    if request.user.has_perm("blog.crear_categoriaforo"):
+        if request.method == "POST":
+            form = CategoriaForm(request.POST, request.FILES)
+            if form.is_valid():
+                form.save()
+                # Redirecciona a la página de listado de categorías o a donde desees.
+                return redirect("foros")
+        else:
+            form = CategoriaForm()
 
-# Editar Categoria Foro
+        return render(request, "crear_categoria.html", {"form": form})
+    else:
+        return HttpResponseForbidden(
+            "No tienes permisos para agregar categorías, contacta al administrador: ccalderon.tech@gmail.com"
+        )
+
+
+# Vista para editar una categoría existente
+@login_required
 def editar_categoria(request, categoria_id):
-    categoria = get_object_or_404(CategoriaForo, pk=categoria_id)
-    if request.method == 'POST':
-        form = CategoriaForm(request.POST, instance=categoria)
-        if form.is_valid():
-            form.save()
-            return redirect('foros')
+    if request.user.has_perm("blog.editar_entradablog"):
+        print("El usuario tiene permiso")
+        categoria = get_object_or_404(CategoriaForo, pk=categoria_id)
+        if request.method == "POST":
+            form = CategoriaForm(request.POST, instance=categoria)
+            if form.is_valid():
+                form.save()
+                return redirect("foros")
+        else:
+            form = CategoriaForm(instance=categoria)
+        return render(
+            request, "editar_categoria.html", {"form": form, "categoria": categoria}
+        )
     else:
-        form = CategoriaForm(instance=categoria)
-    return render(request, 'editar_categoria.html', {'form': form, 'categoria': categoria})
+        print("No hay permiso de administrador o usuario no logeado")
+        return HttpResponseForbidden("No tienes permisos para editar categorías, contacta al administrador: ccalderon.tech@gmail.com")
 
 
 
-# Eliminar Categoria Foro
+# Vista para eliminar una categoría existente
+@login_required
 def eliminar_categoria(request, categoria_id):
-    categoria = get_object_or_404(CategoriaForo, pk=categoria_id)
-    if request.method == 'POST':
-        categoria.delete()
-        return redirect('foros')
-    return render(request, 'eliminar_categoria.html', {'categoria': categoria})
+    if request.user.has_perm("blog.eliminar_entradablog"):
+        print("El usuario tiene permiso")
+        # Código para eliminar una categoria del blog
+        categoria = get_object_or_404(CategoriaForo, pk=categoria_id)
+        if request.method == "POST":
+            categoria.delete()
+            return redirect("foros")
+        return render(request, "eliminar_categoria.html", {"categoria": categoria})                               
+    else:
+        print("No hay permiso de administrador o usuario no logeado")
+        return HttpResponseForbidden("No tienes permisos para agregar categorías, contacta al administrador: ccalderon.tech@gmail.com")
