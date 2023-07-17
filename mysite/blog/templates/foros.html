@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{%load static%}
+{% load static %}
 
 {% block content %}
 <div class="container">
@@ -8,7 +8,11 @@
     {% for categoria in categorias %}
     <div class="col-lg-4 col-md-6 mb-4">
       <div class="card">
-        <img src="{% static 'image/homeworks.png' %}" class="card-img-top" alt="{{ categoria.nombre }}">
+        {% if categoria.imagen %}
+        <img src="{{ categoria.imagen.url }}" class="card-img-top" alt="{{ categoria.nombre }}">
+        {% else %}
+        <div class="no-imagen">No hay imagen disponible</div>
+        {% endif %}
         <div class="card-body">
           <h5 class="card-title">{{ categoria.nombre }}</h5>
           <p class="card-text">{{ categoria.descripcion }}</p>
@@ -21,5 +25,11 @@
     </div>
     {% endfor %}
   </div>
+  <div class="row justify-content-center mb-4">
+    <div class="col-md-6">
+      <a href="{% url 'crear_categoria' %}" class="btn btn-primary btn-block">Agregar Categoría</a>
+    </div>
+  </div>
+  
 </div>
 {% endblock %}

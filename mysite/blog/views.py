@@ -130,8 +130,9 @@ def editar_categoria(request, categoria_id):
         )
     else:
         print("No hay permiso de administrador o usuario no logeado")
-        return HttpResponseForbidden("No tienes permisos para editar categorías, contacta al administrador: ccalderon.tech@gmail.com")
-
+        return HttpResponseForbidden(
+            "No tienes permisos para editar categorías, contacta al administrador: ccalderon.tech@gmail.com"
+        )
 
 
 # Vista para eliminar una categoría existente
@@ -144,7 +145,9 @@ def eliminar_categoria(request, categoria_id):
         if request.method == "POST":
             categoria.delete()
             return redirect("foros")
-        return render(request, "eliminar_categoria.html", {"categoria": categoria})                               
+        return render(request, "eliminar_categoria.html", {"categoria": categoria})
     else:
         print("No hay permiso de administrador o usuario no logeado")
-        return HttpResponseForbidden("No tienes permisos para agregar categorías, contacta al administrador: ccalderon.tech@gmail.com")
+        return HttpResponseForbidden(
+            "No tienes permisos para agregar categorías, contacta al administrador: ccalderon.tech@gmail.com"
+        )
