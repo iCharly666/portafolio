@@ -36,6 +36,8 @@ class Task(models.Model):
 class CategoriaForo(models.Model):
     nombre = models.CharField(max_length=100)
     descripcion = models.TextField()
+    fecha_creacion = models.DateTimeField(auto_now_add=True)  # Campo de fecha de creación
+    fecha_modificacion = models.DateTimeField(auto_now=True)  # Campo de fecha de modificación
 
     def __str__(self):
         return self.nombre

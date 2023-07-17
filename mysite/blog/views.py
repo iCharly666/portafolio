@@ -1,5 +1,5 @@
 from django.contrib.auth import authenticate, login
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 
 # from blog.forms.forms import CustomLoginForm
 from django.contrib.auth.forms import AuthenticationForm
@@ -100,3 +100,25 @@ def crear_categoria(request):
         form = CategoriaForm()
     
     return render(request, 'crear_categoria.html', {'form': form})
+
+# Editar Categoria Foro
+def editar_categoria(request, categoria_id):
+    categoria = get_object_or_404(CategoriaForo, pk=categoria_id)
+    if request.method == 'POST':
+        form = CategoriaForm(request.POST, instance=categoria)
+        if form.is_valid():
+            form.save()
+            return redirect('foros')
+    else:
+        form = CategoriaForm(instance=categoria)
+    return render(request, 'editar_categoria.html', {'form': form, 'categoria': categoria})
+
+
+
+# Eliminar Categoria Foro
+def eliminar_categoria(request, categoria_id):
+    categoria = get_object_or_404(CategoriaForo, pk=categoria_id)
+    if request.method == 'POST':
+        categoria.delete()
+        return redirect('foros')
+    return render(request, 'eliminar_categoria.html', {'categoria': categoria})

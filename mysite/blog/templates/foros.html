@@ -11,6 +11,10 @@
           <h5 class="card-title">{{ categoria.nombre }}</h5>
           <p class="card-text">{{ categoria.descripcion }}</p>
         </div>
+        <div class="card-footer">
+          <a href="{% url 'editar_categoria' categoria.id %}">Editar</a>
+          <a href="{% url 'eliminar_categoria' categoria.id %}">Eliminar</a>
+        </div>
       </div>
     </div>
     {% endfor %}
