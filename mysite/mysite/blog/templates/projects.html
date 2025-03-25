@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<body>
+    <div class="container-fluid bg-white p-2 mb-2 mt-2 rounded">
+        <!-- Content here -->
+        <h1>Proyectos</h1>
+        <div class="container">
+            <h2>Calculador de eDPI</h2>
+            <div class="form-group">
+                <label for="dpiInput">DPI en Mouse:</label>
+                <input type="number" class="form-control" id="dpiInput" placeholder="Ingrese el valor de DPI">
+            </div>
+            <div class="form-group">
+                <label for="sensibilidadInput">Sensibilidad que usas en tu juego:</label>
+                <input type="number" class="form-control" id="sensibilidadInput"
+                    placeholder="Ingrese el valor de sensibilidad">
+            </div>
+            <button class="btn btn-primary" onclick="calcularEdpi()">Calcular eDPI</button>
+            <div id="resultado" class="d-none"></div>
+            <div class="btn-container">
+                <button class="btn btn-info" onclick="mostrarEdpiInfo()">¿Qué es eDPI?</button>
+                <div id="edpiInfo" class="d-none alert alert-info mt-3">
+                    El eDPI (Effective DPI) es una medida utilizada para calcular la sensibilidad efectiva del mouse en
+                    los videojuegos. Se obtiene multiplicando el valor de DPI del mouse por la sensibilidad configurada
+                    en el juego.
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <h2>Convierte tu sensibilidad de un juego A a un juego B</h2>
+            <div class="form-group">
+                <label for="juegoAInput">Juego A:</label>
+                <select class="form-control" id="juegoAInput">
+                    <option value="csgo">CSGO</option>
+                    <option value="apex">Apex</option>
+                    <option value="quake">Quake</option>
+                    <option value="tf2">Team Fortress 2</option>
+                    <option value="titanfall2">Titanfall 2</option>
+                    <option value="eft">Escape From Tarkov</option>
+                    <option value="cod">Call Of Duty</option>
+                    <option value="fortnite">Fortnite</option>
+                    <option value="overwatch">Overwatch</option>
+                    <option value="valorant">Valorant</option>
+                    <option value="paladins">Paladins</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="sensibilidadJuegoAInput">Sensibilidad en el Juego A:</label>
+                <input type="number" class="form-control" id="sensibilidadJuegoAInput"
+                    placeholder="Ingrese el valor de sensibilidad">
+            </div>
+            <div class="form-group">
+                <label for="juegoBInput">Juego B:</label>
+                <select class="form-control" id="juegoBInput">
+                    <option value="csgo">CSGO</option>
+                    <option value="apex">Apex</option>
+                    <option value="quake">Quake</option>
+                    <option value="tf2">Team Fortress 2</option>
+                    <option value="titanfall2">Titanfall 2</option>
+                    <option value="eft">Escape From Tarkov</option>
+                    <option value="cod">Call Of Duty</option>
+                    <option value="fortnite">Fortnite</option>
+                    <option value="overwatch">Overwatch</option>
+                    <option value="valorant">Valorant</option>
+                    <option value="paladins">Paladins</option>
+                </select>
+            </div>
+            <button class="btn btn-primary" onclick="convertirSensibilidad()">Convertir Sensibilidad</button>
+            <div id="resultadoConversor" class="d-none"></div>
+        </div>
+    </div>
+</body>
+<script src="{% static 'js/sensitivity_calculator.js' %}"></script>
+
+{% endblock %}
