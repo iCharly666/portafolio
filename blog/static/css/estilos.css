@@ -145,3 +145,50 @@ body {
 .btn-container {
   margin-top: 10px;
 }
+
+.custom-header {
+  background: url("/static/image/acueducto_morelia.jpg") no-repeat center center;
+  background-size: cover;
+  position: relative;
+  height: 33vh; /* Ajustar imagen del acueducto según lo necesario */
+  color: white;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+}
+
+.custom-header .overlay {
+  background-color: rgba(0, 0, 0, 0.5); /* Oscurece la imagen para mejor legibilidad */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.custom-header .container-fluid {
+  position: relative;
+  z-index: 2;
+}
+
+.custom-header h1 {
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 2px;
+}
+
+.custom-header p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.2rem;
+}
+
+.custom-header .btn {
+  border-radius: 50px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.custom-header .btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
+}
+

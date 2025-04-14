@@ -1,12 +1,23 @@
 /* Hoja de estilos */
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    height: 100%;
-    background: #1d1d20;
+  height: 100%;
+  background: #1d1d20;
+}
+
+/* header color */
+.custom_headercolor {
+  background-color: #1d1d20;
+}
+
+/* sobras para contenedores del index*/
+.shadow-purple {
+  box-shadow: 0 0 10px rgba(99, 81, 206, 0.5);
+  /* Reemplaza el valor RGBA con tu color morado personalizado */
 }
 
 /*
@@ -23,41 +34,57 @@ body {
 
 /* Logotipo de "mi empresa" */
 
-.logotipo-image{
+.logotipo-image {
   width: 50px;
   height: 50px;
 }
 
 /*Foto de perfil profesional en index*/
 .perfil-image {
-    width: 150px;
-    height: 150px;
-  }
+  width: 150px;
+  height: 150px;
+}
 
 
-  
+
 /*Scroll de habilidades técnicas en el index*/
 
 .scroll-list {
-    position: relative;
+  position: relative;
 }
 
 .scroll-icon {
-    position: absolute;
-    right: 0;
-    top: 0;
-    cursor: pointer;
+  position: absolute;
+  right: 0;
+  top: 0;
+  cursor: pointer;
 }
 
 .scroll-icon.down {
-    top: auto;
-    bottom: 0;
-    transform: rotate(180deg);
+  top: auto;
+  bottom: 0;
+  transform: rotate(180deg);
 }
+
+/* scroll de experiencia laboral */
+.scroll-list_experiencia_laboral {
+  max-height: 200px;
+  overflow-y: scroll;
+}
+
+/* margen para la card de habilidades del index*/
+
+
+.habilidades__container {
+  overflow-y: scroll;
+  margin-bottom: 12px;
+  max-height: 200px;
+}
+
 
 /* navbar color*/
 .tone_purple {
-    background-color: #6351ce;
+  background-color: #6351ce;
 }
 
 /* blur para imagenes
@@ -66,46 +93,102 @@ body {
 } /* Ajusta el valor según el nivel de desenfoque deseado */
 
 .img-opacity {
-    opacity: 0.7; /* Ajusta el valor entre 0 (totalmente transparente) y 1 (totalmente opaco) */
-  }
+  opacity: 0.7;
+  /* Ajusta el valor entre 0 (totalmente transparente) y 1 (totalmente opaco) */
+}
 
 
 /*textos superpuestos en las imagenes del index. */
 .text-overlay {
-    position: absolute; /* Posiciona el elemento de manera absoluta dentro del contenedor */
-    top: 50%; /* Coloca el elemento en la mitad de la altura del contenedor */
-    left: 50%; /* Coloca el elemento en la mitad del ancho del contenedor */
-    transform: translate(-50%, -50%); /* Centra el elemento en relación con su posición */
-    background-color: rgba(0, 0, 0, 0.5); /* Agrega un fondo semitransparente al texto */
-    color: white; /* Cambia el color del texto a blanco */
-    padding: 10px; /* Agrega un espacio de relleno alrededor del texto */
-    font-weight: bold; /* Opcional: Agrega negrita al texto */
-  }
+  position: absolute;
+  /* Posiciona el elemento de manera absoluta dentro del contenedor */
+  top: 50%;
+  /* Coloca el elemento en la mitad de la altura del contenedor */
+  left: 50%;
+  /* Coloca el elemento en la mitad del ancho del contenedor */
+  transform: translate(-50%, -50%);
+  /* Centra el elemento en relación con su posición */
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Agrega un fondo semitransparente al texto */
+  color: white;
+  /* Cambia el color del texto a blanco */
+  padding: 10px;
+  /* Agrega un espacio de relleno alrededor del texto */
+  font-weight: bold;
+  /* Opcional: Agrega negrita al texto */
+}
 
 /* contenedor de proyectos.html*/
-  .container {
-    margin-top: 50px;
-  }
+.container {
+  margin-top: 50px;
+}
 
 
 #resultado {
-    background-color: #f8f9fa;
-    border: 1px solid #ced4da;
-    border-radius: 5px;
-    padding: 10px;
-    margin-top: 20px;
-    font-weight: bold;
-  }
+  background-color: #f8f9fa;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 20px;
+  font-weight: bold;
+}
 
 #resultadoCalculadora {
-    background-color: #f8f9fa;
-    border: 1px solid #ced4da;
-    border-radius: 5px;
-    padding: 10px;
-    margin-top: 20px;
-    font-weight: bold;
-  }
+  background-color: #f8f9fa;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 20px;
+  font-weight: bold;
+}
 
-  .btn-container {
-    margin-top: 10px;
-  }
+.btn-container {
+  margin-top: 10px;
+}
+
+.custom-header {
+  background: url("{% static 'image/acueducto_morelia.jpg' %}") no-repeat center center;
+  background-size: cover;
+  position: relative;
+  height: 100vh; /* Ajusta según lo necesario */
+  color: white;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+}
+
+.custom-header .overlay {
+  background-color: rgba(0, 0, 0, 0.5); /* Oscurece la imagen para mejor legibilidad */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.custom-header .container-fluid {
+  position: relative;
+  z-index: 2;
+}
+
+.custom-header h1 {
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 2px;
+}
+
+.custom-header p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.2rem;
+}
+
+.custom-header .btn {
+  border-radius: 50px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.custom-header .btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
+}
+
